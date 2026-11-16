@@ -1,0 +1,86 @@
+# Job programado de FraudeCero (equivalente a Databricks Workflows)
+# - Se ejecuta todos los días a las 06:17 hora Colombia (11:17 UTC) y también a mano (Actions → Run workflow).
+# - Corre el pipeline completo, agrega las métricas al log de monitoreo y lo guarda en el repositorio.
+# - Cada ejecución queda registrada en la pestaña "Actions" con su número, duración y bitácora.
+name: pipeline-fraudecero
+
+on:
+  schedule:
+    - cron: "17 11 * * *"
+  workflow_dispatch:
+    inputs:
+      incluir_modelo:
+        description: "¿Reentrenar el modelo y regenerar el tablero? (true/false)"
+        default: "true"
+
+permissions:
+  contents: write
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      FRAUDECERO_RAIZ: ${{ github.workspace }}
+      FRAUDECERO_LAKE: ${{ github.workspace }}/lakehouse
+      FRAUDECERO_EVID: ${{ github.workspace }}/99_evidencias
+      FRAUDECERO_RUN_ID: gha_${{ github.run_number }}
+      FRAUDECERO_SAL: ${{ secrets.FRAUDECERO_SAL }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: 00 · Ingesta (bronce)
+        run: jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1800 00_ingesta/00_ingesta.ipynb
+
+      - name: 01 · Limpieza (plata)
+        run: jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1800 01_limpieza/01_limpieza.ipynb
+
+      - name: 02 · Análisis (oro)
+        run: jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1800 02_analisis/02_analisis.ipynb
+
+      - name: 03 · Seguridad
+        run: jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1800 03_seguridad/03_seguridad.ipynb
+
+      - name: 04 · Modelo y tablero
+        if: github.event_name == 'schedule' || github.event.inputs.incluir_modelo == 'true'
+        run: |
+          jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=3600 04_visualizacion/04a_modelo.ipynb
+          jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1800 04_visualizacion/04b_tablero.ipynb
+
+      - name: 05 · Monitoreo y regla de alerta
+        if: always()
+        run: jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 04_visualizacion/05_monitoreo.ipynb
+
+      - name: Guardar log de monitoreo y tableros en el repositorio
+        if: always()
+        run: |
+          git config user.name "fraudecero-bot"
+          git config user.email "fraudecero-bot@users.noreply.github.com"
+          git add 99_evidencias/monitoreo 99_evidencias/tablas 99_evidencias/*.html || true
+          git commit -m "monitoreo: ejecución ${{ github.run_number }}" || echo "Sin cambios"
+          git push || echo "No se pudo hacer push"
+
+      - name: Publicar evidencias como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-ejecucion-${{ github.run_number }}
+          path: |
+            99_evidencias/monitoreo
+            99_evidencias/tablas
+            99_evidencias/*.html

@@ -1,0 +1,11 @@
+pyspark==3.5.3
+delta-spark==3.2.1
+kagglehub
+requests
+pandas
+psutil
+plotly
+matplotlib
+jupyter
+nbconvert
+ipykernel

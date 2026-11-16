@@ -1,0 +1,13 @@
+# Datos completos y Lakehouse (se regeneran con el pipeline; no se suben al repositorio)
+lakehouse/
+*.csv.gz
+**/landing/
+# Clave secreta para el hash SHA-256 (Ley 1581: nunca se publica)
+**/_secretos/
+.env
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+spark-warehouse/
+metastore_db/
+derby.log
