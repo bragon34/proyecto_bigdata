@@ -1,0 +1,8 @@
+columna,fuente,categoria_ley_1581,motivo,tratamiento
+id_transaccion,F1,Privado,Identificador directo: permite rastrear la operación hasta el titular de la tarjeta.,Hash SHA-256 con sal secreta + enmascaramiento para visualización
+Time,F1,Semiprivado,Cuasi-identificador: la marca de tiempo exacta combinada con el monto puede reidentificar.,Generalización a hora del día y franja horaria
+Amount,F1,"Semiprivado (dato financiero, Ley 1266)",Revela comportamiento de consumo del titular.,Generalización a rangos de monto en vistas de negocio
+V1–V28,F1,Privado (seudonimizado),Derivados por PCA de datos personales de la transacción; no son directamente identificables.,Solo en zona restringida (rol científico de datos); redondeo a 4 decimales en la muestra
+Class,F1,Privado,Indica que el titular fue víctima de fraude.,Acceso restringido; en oro solo agregado
+entidad,F2,Público,Nombre de la entidad vigilada publicado por la SFC.,Sin tratamiento
+valor / persona_natural / persona_juridica,F2,Público,Cifras agregadas publicadas en datos abiertos; no contienen titulares.,Sin tratamiento

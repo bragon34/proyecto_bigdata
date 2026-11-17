@@ -1,0 +1,15 @@
+tabla,campo,tipo,obligatorio,frecuencia,responsable
+oro_kpis,transacciones,entero,Sí,Por ejecución del pipeline,Juan David Montoya
+oro_kpis,fraudes,entero,Sí,Por ejecución del pipeline,Juan David Montoya
+oro_kpis,kpi1_tasa_fraude_pct,decimal(4) %,Sí,Por ejecución del pipeline,Juan David Montoya
+oro_kpis,kpi2_monto_fraudado_eur,decimal(2) EUR,Sí,Por ejecución del pipeline,Juan David Montoya
+oro_fraude_por_hora,hora,entero 0–23,Sí,Por ejecución del pipeline,William Conde Villamizar
+oro_fraude_por_hora,tasa_fraude_pct,decimal(4) %,Sí,Por ejecución del pipeline,William Conde Villamizar
+oro_fraude_por_hora,ranking_riesgo,entero ≥ 1,Sí,Por ejecución del pipeline,William Conde Villamizar
+oro_exposicion_entidad,entidad,texto (mayúsculas),Sí,Mensual (corte SFC),William Conde Villamizar
+oro_exposicion_entidad,tx_compras,entero,Sí,Mensual (corte SFC),William Conde Villamizar
+oro_exposicion_entidad,fraudes_estimados,entero (escenario),Sí,Mensual (corte SFC),William Conde Villamizar
+oro_predicciones,id_hash,texto SHA-256 (64),Sí,Por reentrenamiento,Juan David Montoya
+oro_predicciones,p_fraude,decimal 0–1,Sí,Por reentrenamiento,Juan David Montoya
+oro_predicciones,prediccion_umbral,entero 0/1,Sí,Por reentrenamiento,Juan David Montoya
+oro_metricas_modelo,"AUC_PR, recall, precision, F1",decimal 0–1,Sí,Por reentrenamiento,Juan David Montoya

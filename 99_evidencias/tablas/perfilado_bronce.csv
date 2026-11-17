@@ -1,0 +1,14 @@
+fuente,columna,tipo,pct_nulos,unicos,minimo,maximo,observacion
+F1,Time,double,0.0,124592,0.0,172792.0,Segundos desde la 1.ª transacción; cubre ~48 h (2 días). Sirve para derivar la hora.
+F1,V1,double,0.0,275663,-56.4075,2.4549,Componente PCA anonimizado; media ≈ 0 por construcción.
+F1,V4,double,0.0,275663,-5.6832,16.8753,Componente PCA; de las más asociadas al fraude.
+F1,V10,double,0.0,275663,-24.5883,23.7451,Componente PCA; valores muy negativos en fraudes.
+F1,V12,double,0.0,275663,-18.6837,7.8484,Componente PCA; valores muy negativos en fraudes.
+F1,V14,double,0.0,275663,-19.2143,10.5268,Componente PCA; la variable más discriminante del fraude.
+F1,V17,double,0.0,275663,-25.1628,9.2535,Componente PCA; valores negativos en fraudes.
+F1,Amount,double,0.0,32767,0.0,25691.16,"Monto en EUR, muy sesgado a la derecha; incluye montos 0."
+F1,Class,int,0.0,2,0,1,"Etiqueta 1 = fraude; desbalance extremo (≈0,17 %)."
+F2,nombreentidad,string (bronce),0.0,57,"""BOLD C.F."", ""BOLD CF S.A."", O ""BOLD. CF",VISIONAMOS SISTEMA DE PAGO COOPERATIVO,Nombre de la entidad emisora; requiere estandarizar espacios y mayúsculas.
+F2,fechacorte,string (bronce),0.0,140,2015-01-31T00:00:00.000,2026-08-31T00:00:00.000,Fecha de corte mensual (texto en bronce); se tipifica a fecha en plata.
+F2,descripcion,string (bronce),0.0,66,GASTOS POR TARIFA INTER.,Total cupo de crédito no utilizado por t,"Indicador reportado (tarjetas vigentes, transacciones, etc.)."
+F2,total_tarjetas,string (bronce),0.0,150056,0,9999928884,Valor del indicador (texto en bronce); se tipifica a número en plata.

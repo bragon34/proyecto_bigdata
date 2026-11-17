@@ -1,0 +1,4 @@
+KPI,valor,formula,fuente
+KPI1 Tasa de fraude,0.1667 %,fraudes / transacciones × 100,plata.transacciones
+KPI2 Monto fraudado,"58,591.39 EUR (0.233 % del total)",Σ Amount con Class = 1,plata.transacciones
+KPI3 Fraudes detectados (recall),ver notebook 04a_modelo,VP / (VP + FN) × 100,oro.predicciones

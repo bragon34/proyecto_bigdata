@@ -1,0 +1,4 @@
+modelo,AUC_PR,AUC_ROC,exactitud,precision,recall,F1,VP,FP,FN,VN
+Línea base (siempre normal),0.0017,0.5,0.9983,0.0,0.0,0.0,0,0,96,56685
+Regresión logística,0.7206,0.9813,0.9754,0.0597,0.9167,0.1121,88,1386,8,55299
+Random Forest,0.7903,0.9902,0.9992,0.7105,0.8438,0.7714,81,33,15,56652
