@@ -2,7 +2,7 @@
   {
     "fuente": "F1_kaggle_creditcard",
     "url": "https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud",
-    "fecha_descarga": "2026-11-17T19:54:22",
+    "fecha_descarga": "2026-11-18T19:26:15",
     "archivo": "creditcard.csv",
     "bytes": 150828752,
     "lineas": 284808,
@@ -12,11 +12,11 @@
   {
     "fuente": "F2_sfc_tarjetas",
     "url": "https://www.datos.gov.co/resource/h2jg-r3zg.csv?$limit=5000000",
-    "fecha_descarga": "2026-11-17T19:54:48",
+    "fecha_descarga": "2026-11-18T19:26:50",
     "archivo": "sfc_tarjetas_credito_debito.csv",
-    "bytes": 35342360,
-    "lineas": 185814,
-    "md5": "b2e75e17248ad95a520b764b1298603c",
+    "bytes": 35612443,
+    "lineas": 187237,
+    "md5": "c9fee999e139d51a077dca48f70a57be",
     "formato": "CSV vía API REST (SODA)"
   }
 ]

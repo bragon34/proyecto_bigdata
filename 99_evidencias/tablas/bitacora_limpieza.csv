@@ -1,11 +1,11 @@
 codigo,tabla,transformacion,filas_antes,filas_despues,filas_eliminadas
 T1,transacciones,Deduplicación sobre las 31 columnas de datos,284807,283726,1081
-T1,sfc_tarjetas,Deduplicación por entidad-fecha-franquicia-indicador,185813,182967,2846
+T1,sfc_tarjetas,Deduplicación por entidad-fecha-franquicia-indicador,187236,184356,2880
 T2,transacciones,"Descarte de filas con Time, Amount o Class nulos",283726,283726,0
-T2,sfc_tarjetas,"Descarte de filas sin entidad, fecha o valor",182967,182967,0
+T2,sfc_tarjetas,"Descarte de filas sin entidad, fecha o valor",184356,184356,0
 T3,transacciones,"Tipificación + id, día, hora, log_amount, rango_monto",283726,283726,0
-T3,sfc_tarjetas,Tipificación de fecha y valores (descarta no convertibles),182967,182967,0
-T4,sfc_tarjetas,"Estandarización de entidad, franquicia, indicador y producto",182967,182967,0
+T3,sfc_tarjetas,Tipificación de fecha y valores (descarta no convertibles),184356,184356,0
+T4,sfc_tarjetas,"Estandarización de entidad, franquicia, indicador y producto",184356,184356,0
 T5,transacciones,Filtro de montos negativos + marca IQR de atípicos,283726,283726,0
-T5,sfc_tarjetas,Filtro de valores negativos,182967,182967,0
-T6,exposicion,Unión SFC (transacciones) × F1 (tasa de fraude) por producto,7880,3883,3997
+T5,sfc_tarjetas,Filtro de valores negativos,184356,184356,0
+T6,exposicion,Unión SFC (transacciones) × F1 (tasa de fraude) por producto,7942,3914,4028

@@ -1,5 +1,5 @@
 V,evidencia
-Volumen,"F1: 143.8 MB y 284,807 registros · F2: 33.7 MB y 185,813 registros"
+Volumen,"F1: 143.8 MB y 284,807 registros · F2: 34.0 MB y 187,236 registros"
 Velocidad,"F1: ~142.000 transacciones/día (≈1,6 por segundo) en el periodo original · F2: actualización mensual de la SFC"
 Variedad,"2 fuentes, 2 formatos de origen (archivo CSV y API REST SODA); datos numéricos anonimizados (PCA) + datos categóricos y temporales"
 Veracidad,"F1: 0 columnas con nulos, 1,081 filas duplicadas (0.38 %) · F2: % nulos máx. por columna = 0.00 %"

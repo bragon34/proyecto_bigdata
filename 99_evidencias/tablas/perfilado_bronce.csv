@@ -8,7 +8,7 @@ F1,V14,double,0.0,275663,-19.2143,10.5268,Componente PCA; la variable más discr
 F1,V17,double,0.0,275663,-25.1628,9.2535,Componente PCA; valores negativos en fraudes.
 F1,Amount,double,0.0,32767,0.0,25691.16,"Monto en EUR, muy sesgado a la derecha; incluye montos 0."
 F1,Class,int,0.0,2,0,1,"Etiqueta 1 = fraude; desbalance extremo (≈0,17 %)."
-F2,nombreentidad,string (bronce),0.0,57,"""BOLD C.F."", ""BOLD CF S.A."", O ""BOLD. CF",VISIONAMOS SISTEMA DE PAGO COOPERATIVO,Nombre de la entidad emisora; requiere estandarizar espacios y mayúsculas.
-F2,fechacorte,string (bronce),0.0,140,2015-01-31T00:00:00.000,2026-08-31T00:00:00.000,Fecha de corte mensual (texto en bronce); se tipifica a fecha en plata.
+F2,nombreentidad,string (bronce),0.0,58,"""BOLD C.F."", ""BOLD CF S.A."", O ""BOLD. CF",VISIONAMOS SISTEMA DE PAGO COOPERATIVO,Nombre de la entidad emisora; requiere estandarizar espacios y mayúsculas.
+F2,fechacorte,string (bronce),0.0,141,2015-01-31T00:00:00.000,2026-09-30T00:00:00.000,Fecha de corte mensual (texto en bronce); se tipifica a fecha en plata.
 F2,descripcion,string (bronce),0.0,66,GASTOS POR TARIFA INTER.,Total cupo de crédito no utilizado por t,"Indicador reportado (tarjetas vigentes, transacciones, etc.)."
-F2,total_tarjetas,string (bronce),0.0,150056,0,9999928884,Valor del indicador (texto en bronce); se tipifica a número en plata.
+F2,total_tarjetas,string (bronce),0.0,151109,0,9999928884,Valor del indicador (texto en bronce); se tipifica a número en plata.
